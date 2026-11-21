@@ -27,3 +27,16 @@
 
     }
 }
+
+@media (max-width: 800px) {
+    .dashboard-layout  {
+        flex-direction: column-reverse;
+        gap: 0px;
+
+        .dashboard-container {
+            width: 100%;
+            height: calc(100% - 65px);
+        }
+
+    }
+}
