@@ -1,0 +1,29 @@
+@import "../variables.scss";
+
+.dashboard-layout {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 10px;
+
+    .dashboard-container {
+        height: 100%;
+        width: calc(100% - 250px);
+        padding: 15px;
+        box-sizing: border-box;
+        overflow-y: auto;
+
+        .dashboard-content {
+            width: 100%;
+            height: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+            background-color: $bg-white;
+            border-radius: 10px;
+        }
+
+    }
+}

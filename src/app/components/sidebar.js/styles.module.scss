@@ -1,0 +1,61 @@
+@import "../../variables.scss";
+
+.sidebar-main {
+    width: 250px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: $bg-white;
+
+    .logo {
+        display: block;
+        width: 60px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .menu-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 10px;
+
+        .menu-wrapper {
+            width: 100%;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;    
+            gap: 15px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            
+            &.active-menu {
+                background-color: $bg-primary;
+                color: $bg-white;;
+            }
+            
+            &.inactive-menu {
+                background-color: $bg-white;
+                color: $text-primary;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar-main {
+        .logo {
+            display: none;
+        }
+    }
+}
