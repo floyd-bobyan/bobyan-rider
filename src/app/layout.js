@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import StoreProvider from './storeprovider';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,7 +20,21 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+      <head>
+        <link rel="preconnect" href="https://googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body>
+        <StoreProvider>{children}</StoreProvider>
+      </body>
     </html>
   );
 }
