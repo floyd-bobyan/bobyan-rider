@@ -1,11 +1,12 @@
 "use client"
 
 import Image from "next/image";
-import { FaChartPie, FaDollarSign } from "react-icons/fa";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { FaChartPie, FaDollarSign } from "react-icons/fa";
 
 import styles from "./styles.module.scss";
-import { useState } from "react";
+import bobyanLogo from "../../../assets/bobyan-logo.svg";
 
 const sidebarData = [
   {
@@ -33,7 +34,11 @@ const Sidebar = () => {
 
   return (
     <div className={styles["sidebar-main"]}>
-      <Image className={styles["logo"]} />
+      <Image 
+      className={styles["logo"]} 
+      alt="Bobyan Delivery"
+      src={bobyanLogo}
+      />
       <div className={styles["menu-container"]}>
         {sidebarData?.map((menu) => {
           const isMenuActive = activeMenu === menu?.id;

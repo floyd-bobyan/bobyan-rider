@@ -1,12 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
-
-import login from "./slices/login";
+// import login from './slices/login';
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      login,
+      login: (state = {}) => state,
     },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: false,
+        immutableCheck: false,
+      }),
   });
 };
 

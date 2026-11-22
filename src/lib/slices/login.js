@@ -12,14 +12,11 @@ export const loginUser = createAsyncThunk(
   'auth/loginUser',
   async (params, { rejectWithValue }) => {
     try {
-      // Optional: build query string if params are passed (e.g. ?email=test@mail.com)
-      const query = params ? `?${new URLSearchParams(params).toString()}` : '';
 
-      const response = await fetch(`/api/login${query}`, {
+      const response = await fetch(`/api/login`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          // Authorization: `Bearer ${token}`, // Uncomment if your GET route needs a token
         },
       });
 
