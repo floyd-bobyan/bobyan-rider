@@ -23,6 +23,7 @@
 
     .image-container {
       height: 100%;
+      max-height: 80vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -30,8 +31,10 @@
       border-right: 3px solid $grey-color;
 
       img {
+        max-width: 40vw;
         width: auto;
-        height: 90%;
+        height: auto;
+        max-height: 90%;
         object-fit: cover;
         border-radius: 10px;
       }
@@ -44,6 +47,8 @@
       justify-content: center;
       flex-direction: column;
       flex: 1;
+      padding: 10px;
+      box-sizing: border-box;
 
       .header {
         font-size: 42px;

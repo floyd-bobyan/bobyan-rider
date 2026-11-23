@@ -1,27 +1,28 @@
 "use client"
 
 import Image from "next/image"
-import { redirect } from 'next/navigation';
-import { useState, useEffect } from "react";
+
+import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 
 import loginpic from "../../../assets/login.png"
 import styles from "./styles.module.scss"
+import { loginUser } from "../../../lib/slices/login";
 
 const LoginMain = () => {
-    const [username, setUsername] = useState("");
+    const [riderId, setRiderId] = useState("");
     const [password, setPassword] = useState("");
+    const [errors, setErrors] = useState("");
 
     const dispatch = useDispatch();
     const { loading, success: loginSuccess, data: loginData, error: loginError } = useSelector((state) => state.login);
 
     const handleLogin = () => {
         // Handle login logic here
-        console.log("Username:", username);
+        console.log("Username:", riderId);
         console.log("Password:", password);
 
-        redirect('/performance');
-
+        dispatch(loginUser({id: riderId, password}))
     }
 
     return (
@@ -44,8 +45,8 @@ const LoginMain = () => {
                             <input
                                 type="number"
                                 placeholder="Enter your Civil ID number"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
+                                value={riderId}
+                                onChange={(e) => setRiderId(e.target.value)}
                             />
                         </div>
                         <div className={styles["input-wrapper"]}>

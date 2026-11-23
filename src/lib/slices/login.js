@@ -3,27 +3,25 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 const initialState = {
   loading: false,
   success: false,
-  data: null,
+  data: null, // { driver: { id, name, contract, vehicle, fleet } }
   error: null,
 };
 
-// Async thunk for GET request
 export const loginUser = createAsyncThunk(
   'auth/loginUser',
   async (params, { rejectWithValue }) => {
     try {
-
-      const response = await fetch(`/api/login`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(params), // { id, password }
       });
 
-      const result = await response.json();
+      const text = await response.text();
+      const result = text ? JSON.parse(text) : {};
 
       if (!response.ok) {
-        return rejectWithValue(result.message || 'Request failed');
+        return rejectWithValue(result.error || 'Request failed');
       }
 
       return result;
@@ -41,6 +39,9 @@ const authSlice = createSlice({
       state.loading = false;
       state.success = false;
       state.error = null;
+    },
+    logout() {
+      return initialState;
     },
   },
   extraReducers: (builder) => {
@@ -64,5 +65,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { resetState } = authSlice.actions;
+export const { resetState, logout } = authSlice.actions;
 export default authSlice.reducer;

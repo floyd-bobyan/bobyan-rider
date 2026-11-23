@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import login from './slices/login';
+import authreducer from './slices/login';
+import earningsReducer from './slices/earnings';
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      login: (state = {}) => state,
+      login: authreducer,
+      earnings: earningsReducer,
     },
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
