@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { FaChartPie, FaDollarSign } from "react-icons/fa";
 
@@ -27,11 +27,19 @@ const sidebarData = [
 const Sidebar = () => {
   const [activeMenu, setActiveMenu] = useState(1);
   const router = useRouter();
-
+  
   const onClickActiveMenu = ({ selectedMenu }) => {
     setActiveMenu(selectedMenu?.id);
     router.push(selectedMenu?.path);
   }
+
+  useEffect(() => {
+    const currentPath = window.location.pathname;
+    const activeMenuItem = sidebarData.find((menu) => menu.path === currentPath);
+    if (activeMenuItem) {
+      setActiveMenu(activeMenuItem.id);
+    }
+  }, []);
 
   return (
     <div className={styles["sidebar-main"]}>

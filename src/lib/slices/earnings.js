@@ -9,12 +9,11 @@ const initialState = {
 
 export const fetchEarnings = createAsyncThunk(
   'earnings/fetchEarnings',
-  async (_, { rejectWithValue }) => {
+  async (driverId, { rejectWithValue }) => {
     try {
-      const response = await fetch('/api/earnings', {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      });
+      const response = await fetch(
+        `/api/earnings?id=${encodeURIComponent(driverId)}`
+      );
 
       const text = await response.text();
       const result = text ? JSON.parse(text) : {};

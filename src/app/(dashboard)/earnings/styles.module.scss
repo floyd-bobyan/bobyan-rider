@@ -1,0 +1,156 @@
+@import "../../variables.scss";
+
+.earnings-page-main {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 20px;
+  color: $text-primary;
+
+  .page-header {
+    font-size: 18px;
+    font-weight: bold;
+    color: $text-primary;
+  }
+
+  .details-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .name-id {
+      width: 85%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-wrap: word;
+      font-size: 14px;
+      line-height: 25px;
+      border-right: 3px solid $grey-color;
+      padding-right: 20px;
+      box-sizing: border-box;
+
+      .fleet-icon {
+        font-size: 24px;
+        margin-bottom: -5px;
+      }
+    }
+
+
+    .salary {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+
+  .orders-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px 0px;
+    box-sizing: border-box;
+
+    .stats-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+
+        .card-value {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid $primary-color;
+            height: 60px;
+            width: 60px;
+            border-radius: 60px;
+            font-weight: 600;
+        }
+
+        .card-text {
+            font-size: 12px;
+            max-width: 125px;
+            text-align: center;
+        }
+    }
+  }
+
+  .breakdown-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 12px;
+
+    .breakdown-card {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 5px;
+        box-sizing: border-box;
+
+        &-header {
+            background-color: $grey-color;
+            padding: 15px 10px;
+            font-weight: 600;
+            border-radius: 5px;
+        }
+
+        &-footer {
+            font-weight: 600;
+            border: none !important;
+
+            .card-text {
+                font-size: 16px;
+            }
+        }
+
+        &:last-child {
+            font-weight: 600;
+            border-bottom: 2px solid $grey-color;
+        }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .earnings-page-main {
+    .details-section {
+        padding: 15px 10px;
+        box-sizing: border-box;
+        background-color: $primary-color;
+        color: $text-white;
+        border-radius: 5px;
+
+      .name-id {
+        width: 100%;
+        align-items: flex-start;
+        width: fit-content;
+        border: none;
+        padding: 0px;
+        color: $text-white;
+      }
+
+      .salary {
+        width: 100%;
+        padding-left: 35px;
+        box-sizing: border-box;
+      }
+    }
+  }
+}

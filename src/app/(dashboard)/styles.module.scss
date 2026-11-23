@@ -14,7 +14,7 @@
         width: calc(100% - 250px);
         padding: 15px;
         box-sizing: border-box;
-        overflow-y: auto;
+        overflow: hidden;
 
         .dashboard-content {
             width: 100%;
@@ -23,6 +23,7 @@
             box-sizing: border-box;
             background-color: $bg-white;
             border-radius: 10px;
+            overflow-y: auto;
         }
 
     }

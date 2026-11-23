@@ -28,13 +28,14 @@ const LoginMain = () => {
     const handleLogin = () => {
         dispatch(loginUser({ id: riderId, password }))
     }
-
+    
     useEffect(() => {
         setErrors(loginError);
     }, [loginError]);
-
+    
     useEffect(() => {
         if (loginSuccess && loginData) {
+            sessionStorage.setItem("rider", JSON.stringify(loginData.driver));
             redirect(uris.performance);
         }
     }, [ loginSuccess, loginData]);    
