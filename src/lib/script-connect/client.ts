@@ -1,17 +1,19 @@
 import "server-only";
 
-console.log("token:", JSON.stringify(process.env.APPS_SCRIPT_TOKEN));
+console.log("URL", process.env.NEXT_PUBLIC_APPS_SCRIPT_URL);
+console.log("URL", process.env.NEXT_PUBLIC_APPS_SCRIPT_TOKEN);
+
 
 export async function callScript<T>(
   action: string,
   payload: Record<string, unknown> = {}
 ): Promise<T> {
-  const res = await fetch(process.env.APPS_SCRIPT_URL, {
+  const res = await fetch(process.env.NEXT_PUBLIC_APPS_SCRIPT_URL, {
     method: "POST",
     headers: { "Content-Type": "text/plain" },
     body: JSON.stringify({
       action,
-      token: process.env.APPS_SCRIPT_TOKEN,
+      token: process.env.NEXT_PUBLIC_APPS_SCRIPT_TOKEN,
       ...payload,
     }),
     cache: "no-store",

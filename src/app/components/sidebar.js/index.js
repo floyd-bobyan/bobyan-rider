@@ -7,18 +7,19 @@ import { FaChartPie, FaDollarSign } from "react-icons/fa";
 
 import styles from "./styles.module.scss";
 import bobyanLogo from "../../../assets/bobyan-logo.svg";
+import uris from "../../../utils/uris";
 
 const sidebarData = [
   {
     id: 1,
     name: "Performance",
-    path: "/performance",
+    path: uris.performance,
     icon: <FaChartPie />,
   },
   {
     id: 2,
     name: "Earnings",
-    path: "/earnings",
+    path: uris.earnings,
     icon: <FaDollarSign />,
   },
 ];

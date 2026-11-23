@@ -27,7 +27,8 @@ export async function POST(req) {
 
     return NextResponse.json({ driver: result.driver });
   } catch (e) {
-    console.error(e);
+    console.log(e);
+    
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
