@@ -16,6 +16,14 @@
     color: $text-primary;
   }
 
+  .details-loader {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .details-section {
     width: 100%;
     display: flex;
@@ -43,7 +51,6 @@
       }
     }
 
-
     .salary {
       font-size: 20px;
       font-weight: bold;
@@ -62,28 +69,50 @@
     box-sizing: border-box;
 
     .stats-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+
+      .card-value {
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-direction: column;
-        gap: 10px;
+        border: 5px solid $primary-color;
+        height: 60px;
+        width: 60px;
+        border-radius: 60px;
+        font-weight: 600;
 
-        .card-value {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 5px solid $primary-color;
-            height: 60px;
-            width: 60px;
-            border-radius: 60px;
-            font-weight: 600;
+        opacity: 0;
+        transform: scale(0.5);
+        animation: valueReveal 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+          forwards;
+      }
+
+      .card-text {
+        font-size: 12px;
+        max-width: 125px;
+        text-align: center;
+      }
+
+      @keyframes valueReveal {
+        0% {
+          opacity: 0;
+          transform: scale(0.5);
         }
 
-        .card-text {
-            font-size: 12px;
-            max-width: 125px;
-            text-align: center;
+        70% {
+          opacity: 1;
+          transform: scale(1.12);
         }
+
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
     }
   }
 
@@ -97,33 +126,33 @@
     font-size: 12px;
 
     .breakdown-card {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 5px;
-        box-sizing: border-box;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 5px;
+      box-sizing: border-box;
 
-        &-header {
-            background-color: $grey-color;
-            padding: 15px 10px;
-            font-weight: 600;
-            border-radius: 5px;
+      &-header {
+        background-color: $grey-color;
+        padding: 15px 10px;
+        font-weight: 600;
+        border-radius: 5px;
+      }
+
+      &-footer {
+        font-weight: 600;
+        border: none !important;
+
+        .card-text {
+          font-size: 16px;
         }
+      }
 
-        &-footer {
-            font-weight: 600;
-            border: none !important;
-
-            .card-text {
-                font-size: 16px;
-            }
-        }
-
-        &:last-child {
-            font-weight: 600;
-            border-bottom: 2px solid $grey-color;
-        }
+      &:last-child {
+        font-weight: 600;
+        border-bottom: 2px solid $grey-color;
+      }
     }
   }
 }
@@ -131,11 +160,11 @@
 @media (max-width: 800px) {
   .earnings-page-main {
     .details-section {
-        padding: 15px 10px;
-        box-sizing: border-box;
-        background-color: $primary-color;
-        color: $text-white;
-        border-radius: 5px;
+      padding: 15px 10px;
+      box-sizing: border-box;
+      background-color: $primary-color;
+      color: $text-white;
+      border-radius: 5px;
 
       .name-id {
         width: 100%;
