@@ -58,15 +58,15 @@ const EarningsMain = () => {
         {/* order stats */}
         <div className={styles["orders-section"]}>
           {salaryDetails[0]?.fields?.map((item) => {
+            if (item?.value <= 0) {
+              return null
+            }
+
             return (
-              <>
-                {item?.value > 0 && (
-                  <div className={styles["stats-card"]}>
+              <div className={styles["stats-card"]} key={item?.label}>
                     <div className={styles["card-value"]}>{item?.value}</div>
                     <div className={styles["card-text"]}>{item?.label}</div>
                   </div>
-                )}
-              </>
             )
           })}
         </div>
@@ -79,7 +79,7 @@ const EarningsMain = () => {
           </div>
           {salaryDetails[1]?.fields?.map((item) => {
             return (
-              <div className={styles["breakdown-card"]}>
+              <div className={styles["breakdown-card"]} key={item?.label}>
                 <div className={styles["card-text"]}>{item?.label}</div>
                 <div className={styles["card-value"]}>{item?.value}</div>
               </div>
